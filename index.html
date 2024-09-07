@@ -3,95 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Resume</title>
+    <title>Resume Builder - Abdul Karim</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="container">
-      <div class="header">
-        <h1>John Doe</h1>
-        <p>Full-Stack Developer</p>
-        <p>
-          Email: johndoe@example.com | Phone: (123) 456-7890 | LinkedIn: johndoe
-        </p>
-      </div>
+    <h1 class="text-center poppins-bold">
+      Resume Builder
+      <span class="small-text poppins-regular">by Abdul Karim</span>
+    </h1>
+    <form class="form" id="resume-form">
+      <h3 class="poppins-semibold text-center" style="margin: 8px 0">
+        Fill out your resume here
+      </h3>
+      <div class="form-content">
+        <div class="form-group">
+          <h3 class="text-center">Resume Header Information</h3>
+          <div class="flex flex-col">
+            <label for="name">Name</label>
+            <input required type="text" name="name" placeholder="John Doe" />
+          </div>
+          <div class="flex flex-col">
+            <label for="job">Job</label>
+            <input
+              required
+              type="text"
+              name="job"
+              placeholder="Full-Stack Developer"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="email">Email</label>
+            <input
+              required
+              type="email"
+              name="email"
+              placeholder="johndoe@example.com"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="phone">Phone</label>
+            <input
+              required
+              type="text"
+              name="phone"
+              placeholder="+92 3341234567"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="linkedin">LinkedIn Username</label>
+            <input required type="text" name="linkedin" placeholder="johndoe" />
+          </div>
+          <div class="flex flex-col">
+            <label for="about">About (Brief Summary about yourself)</label>
+            <textarea
+              required
+              name="about"
+              cols="50"
+              rows="4"
+              placeholder="Passionate Full-Stack Developer with over 5 years of experience building responsive web applications. Adept at working with modern frameworks and designing visually appealing UI/UX."
+            ></textarea>
+          </div>
+        </div>
 
-      <!-- About -->
-      <div class="section">
-        <h2 onclick="toggleSection('about')">About Me</h2>
-        <div id="about" class="content">
-          <p>
-            Passionate Full-Stack Developer with over 5 years of experience
-            building responsive web applications. Adept at working with modern
-            frameworks and designing visually appealing UI/UX.
-          </p>
+        <div class="form-group">
+          <div style="gap: 1rem" class="flex">
+            <h3>Work Experience Information</h3>
+            <button type="button" class="add-btn" id="add-experience-btn">
+              Add Experience
+            </button>
+          </div>
+          <ol id="experience-list"></ol>
+        </div>
+
+        <div class="form-group">
+          <div style="gap: 1rem" class="flex">
+            <h3>Education Information</h3>
+            <button type="button" class="add-btn" id="add-education-btn">
+              Add Education
+            </button>
+          </div>
+          <ol id="education-list"></ol>
+        </div>
+
+        <div class="form-group">
+          <div style="gap: 1rem" class="flex">
+            <h3>Skills</h3>
+            <button type="button" class="add-btn" id="add-skill-btn">
+              Add Skill
+            </button>
+          </div>
+          <ol id="skill-list"></ol>
+        </div>
+
+        <div class="form-group">
+          <div style="gap: 1rem" class="flex">
+            <h3>Certifications</h3>
+            <button type="button" class="add-btn" id="add-certification-btn">
+              Add Certification
+            </button>
+          </div>
+          <ol id="certification-list"></ol>
         </div>
       </div>
 
-      <!-- Work Exp -->
-      <div class="section">
-        <h2 onclick="toggleSection('work')">Work Experience</h2>
-        <div id="work" class="content">
-          <h3>Senior Developer - XYZ Corp (2020 - Present)</h3>
-          <ul>
-            <li>
-              Lead a team of developers to build scalable web applications using
-              React and Node.js.
-            </li>
-            <li>
-              Implemented CI/CD pipeline, reducing deployment time by 30%.
-            </li>
-          </ul>
+      <button type="submit" id="submit-btn">Generate Resume</button>
+    </form>
 
-          <h3>Junior Developer - ABC Ltd (2017 - 2020)</h3>
-          <ul>
-            <li>
-              Worked on creating interactive UI components with Angular and
-              improving backend APIs with Node.js.
-            </li>
-            <li>
-              Collaborated with cross-functional teams to deliver projects on
-              time.
-            </li>
-          </ul>
-        </div>
-      </div>
+    <h1
+      class="text-center"
+      style="margin: 1rem 0; display: none"
+      id="resume-heading"
+    >
+      Your Resume
+    </h1>
 
-      <!-- Education -->
-      <div class="section">
-        <h2 onclick="toggleSection('education')">Education</h2>
-        <div id="education" class="content">
-          <h3>Bachelor of Science in Computer Science</h3>
-          <p>University of Technology (2013 - 2017)</p>
-        </div>
-      </div>
-
-      <!-- Skills -->
-      <div class="section">
-        <h2 onclick="toggleSection('skills')">Skills</h2>
-        <div id="skills" class="content">
-          <ul>
-            <li>Programming Languages: JavaScript, Python, Java</li>
-            <li>Frameworks: React, Angular, Node.js</li>
-            <li>Databases: MongoDB, MySQL</li>
-            <li>Version Control: Git, GitHub</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Certifications -->
-      <div class="section">
-        <h2 onclick="toggleSection('certifications')">Certifications</h2>
-        <div id="certifications" class="content">
-          <ul>
-            <li>Certified JavaScript Developer - Udemy</li>
-            <li>Full-Stack Web Development - Coursera</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div id="resume-container"></div>
 
     <script src="script.js"></script>
+    <script src="resume-script.js"></script>
   </body>
 </html>
