@@ -230,11 +230,11 @@ function generateResumeMarkup(c: ResumeConfig) {
     certifications,
   } = c;
 
-  console.log({ name, job, email, phone, linkedin, about });
-  console.log(experiences);
-  console.log(educations);
-  console.log(skills);
-  console.log(certifications);
+  // console.log({ name, job, email, phone, linkedin, about });
+  // console.log(experiences);
+  // console.log(educations);
+  // console.log(skills);
+  // console.log(certifications);
 
   return `
     <div class="container">
@@ -352,3 +352,25 @@ function generateResumeMarkup(c: ResumeConfig) {
     </div>
   `;
 }
+
+resume_form.addEventListener("input", () => {
+  hideResumeHeading();
+  resume_container.innerHTML = "";
+});
+
+const download_btn = document.getElementById(
+  "download-btn"
+) as HTMLButtonElement;
+
+download_btn.addEventListener("click", () => {
+  var opt = {
+    margin: 0,
+    filename: "resume.pdf",
+    image: { type: "jpeg", quality: 1 },
+    html2canvas: { scale: 2, scrollY: 0 },
+  };
+
+  // because im using it through a cdn
+  // @ts-ignore
+  html2pdf().set(opt).from(resume_container).save();
+});
