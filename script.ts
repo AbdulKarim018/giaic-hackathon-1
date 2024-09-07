@@ -87,7 +87,9 @@ add_certification_btn.addEventListener("click", () => {
 });
 
 const resume_form = document.getElementById("resume-form") as HTMLFormElement;
-
+const resume_container = document.getElementById(
+  "resume-container"
+) as HTMLDivElement;
 resume_form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -170,7 +172,7 @@ resume_form.addEventListener("submit", (e) => {
   });
 
   showResumeHeading();
-  document.getElementById("resume-container")!.innerHTML = resumeMarkup;
+  resume_container.innerHTML = resumeMarkup;
 });
 
 const resume_heading = document.getElementById(
@@ -346,10 +348,6 @@ function generateResumeMarkup(c: ResumeConfig) {
             </div>`
               : ""
           }
-
-
-
-
 
     </div>
   `;
