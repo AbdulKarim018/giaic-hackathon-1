@@ -363,6 +363,18 @@ const download_btn = document.getElementById(
 ) as HTMLButtonElement;
 
 download_btn.addEventListener("click", () => {
+  const contentList = Array.from(
+    document.getElementsByClassName(
+      "content"
+    ) as HTMLCollectionOf<HTMLDivElement>
+  );
+
+  console.log(contentList);
+
+  contentList.forEach((elem) => {
+    elem.style.display = "block";
+  });
+
   var opt = {
     margin: 0,
     filename: "resume.pdf",

@@ -240,6 +240,11 @@ resume_form.addEventListener("input", () => {
 });
 const download_btn = document.getElementById("download-btn");
 download_btn.addEventListener("click", () => {
+    const contentList = Array.from(document.getElementsByClassName("content"));
+    console.log(contentList);
+    contentList.forEach((elem) => {
+        elem.style.display = "block";
+    });
     var opt = {
         margin: 0,
         filename: "resume.pdf",
