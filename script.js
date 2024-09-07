@@ -115,6 +115,7 @@ resume_form.addEventListener("submit", (e) => {
     });
     showResumeHeading();
     resume_container.innerHTML = resumeMarkup;
+    resume_container.scrollIntoView({ behavior: "smooth" });
 });
 const resume_heading = document.getElementById("resume-heading");
 function showResumeHeading() {
